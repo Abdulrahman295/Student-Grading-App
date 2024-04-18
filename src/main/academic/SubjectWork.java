@@ -6,6 +6,7 @@ public class SubjectWork {
     private Integer practicalMark;
     private Integer midtermMark;
     private Integer finalMark;
+    private Integer totalMark;
     private Double GPA;
     private String grade;
 
@@ -111,7 +112,23 @@ public class SubjectWork {
     }
 
     public Integer getTotalMark() {
-        return activitiesMark + practicalMark + midtermMark + finalMark;
+        if(this.totalMark == null){
+            this.totalMark = this.activitiesMark + this.practicalMark + this.midtermMark + this.finalMark;
+        }
+        
+        return this.totalMark;
+    }
+
+    public void setTotalMark(Integer totalMark){
+        if (totalMark == null) {
+            throw new IllegalArgumentException("totalMark cannot be null");
+        }
+
+        if (totalMark < 0 || totalMark > 100) {
+            throw new IllegalArgumentException("totalMark must be between 0 and 100");
+        }
+
+        this.totalMark = totalMark;
     }
 
     public Double getGPA() {

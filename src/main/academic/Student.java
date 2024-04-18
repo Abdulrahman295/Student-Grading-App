@@ -46,7 +46,8 @@ public class Student {
             throw new IllegalArgumentException("studentNumber must be 8 characters");
         }
         
-        if (!number.matches("^[0-9]{7}[a-zA-Z]?$")) {
+        if (!number.matches("^[0-9]{7}[0-9a-zA-Z]?$")) {
+            
             throw new IllegalArgumentException("Student number must start with 7 numbers and may end with one optional alphabetic character, total length must be exactly 8 characters.");
         }
 

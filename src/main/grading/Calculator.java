@@ -2,13 +2,11 @@ package main.grading;
 import main.academic.*;
 import java.util.AbstractMap.SimpleEntry;
 
-public class GPACalc {
-
-    public GPACalc() {
-        
+public class Calculator {
+    public Calculator() {
     }
 
-    public SimpleEntry<String, Double> calculateGradeAndGPA(SubjectWork subjectWork){
+    public static SimpleEntry<String, Double> calculateGradeAndGPA(SubjectWork subjectWork){
 
         Integer totalMarks = subjectWork.getTotalMark();
         Double gpa = 0.0;
@@ -54,6 +52,4 @@ public class GPACalc {
 
         return new SimpleEntry<String, Double>(grade, gpa);
     }
-
-    
 }

@@ -3,8 +3,6 @@ import main.academic.*;
 import java.util.AbstractMap.SimpleEntry;
 
 public class Calculator {
-    public Calculator() {
-    }
 
     public static SimpleEntry<String, Double> calculateGradeAndGPA(SubjectWork subjectWork){
 

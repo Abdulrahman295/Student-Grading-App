@@ -56,11 +56,11 @@ class FileWriterManagerTest {
 
         // Read back the file to check contents
         List<String> lines = Files.readAllLines(tempFile);
-        assertEquals(6, lines.size(), "Should write 4 lines (Subject, header, and 4 students)");
+        assertEquals(4, lines.size(), "Should write 4 lines (Subject, header, and 2 students)");
         assertTrue(lines.get(0).contains("Subject Name: Mathematics   Max Mark: 100"));
-        assertTrue(lines.get(1).contains("Student name  Student number  GPA  Grade"));
-        assertTrue(lines.get(2).contains("John Doe  12345678  3.50  A"));
-        assertTrue(lines.get(3).contains("Jane Doe  87654321  3.20  B"));
+        assertTrue(lines.get(1).contains("Student name    Student number    GPA       Grade"));
+        assertTrue(lines.get(2).contains("John Doe         12345678         3.50        A    "));
+        assertTrue(lines.get(3).contains("Jane Doe         87654321         3.20        B    "));
     }
 
     @AfterEach

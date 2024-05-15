@@ -102,12 +102,39 @@ public class StudentGradingTest {
 
     @Test
     public void testIncorrectOutputFormat() throws Exception {
-        // Replace with your actual empty data file path
         String inputFilePath = "src/test/black_box/resources/valid_data.txt";
         String outputFilePath = "src/test/black_box/resources/output_incorrect.txt";
 
         StudentGradingApp app = new StudentGradingApp(inputFilePath, outputFilePath);
         assertDoesNotThrow(() -> app.calculateStudentsGrades());
+    }
+
+    @Test
+    public void testInvalidStudentMarks() throws Exception {
+        String inputFilePath = "src/test/black_box/resources/invalid_marks.txt";
+        String outputFilePath = "src/test/black_box/resources/output.txt";
+
+        StudentGradingApp app = new StudentGradingApp(inputFilePath, outputFilePath);
+        assertThrows(IllegalArgumentException.class, () -> app.calculateStudentsGrades());
+    }
+
+    @Test
+    public void testInvalidStudentNumber() throws Exception {
+        String inputFilePath = "src/test/black_box/resources/invalid_student_number.txt";
+        String outputFilePath = "src/test/black_box/resources/output.txt";
+
+        StudentGradingApp app = new StudentGradingApp(inputFilePath, outputFilePath);
+        assertThrows(IllegalArgumentException.class, () -> app.calculateStudentsGrades());
+
+    }
+
+    @Test
+    public void testNegativeStudentGrade() throws Exception {
+        String inputFilePath = "src/test/black_box/resources/negative_student_grade.txt";
+        String outputFilePath = "src/test/black_box/resources/output.txt";
+
+        StudentGradingApp app = new StudentGradingApp(inputFilePath, outputFilePath);
+        assertThrows(IllegalArgumentException.class, () -> app.calculateStudentsGrades());
     }
 
 }

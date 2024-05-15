@@ -8,9 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import main.app.StudentGradingApp;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StudentGradingTest {
 
@@ -78,7 +76,7 @@ public class StudentGradingTest {
 
         StudentGradingApp app = new StudentGradingApp(inputFilePath, outputFilePath);
 
-        assertThrows(IllegalArgumentException.class, () -> app.calculateStudentsGrades());
+        assertThrows(IllegalArgumentException.class,() -> app.calculateStudentsGrades());
     }
 
     @Test
@@ -100,6 +98,16 @@ public class StudentGradingTest {
 
         StudentGradingApp app = new StudentGradingApp(inputFilePath, outputFilePath);
         assertThrows(IllegalArgumentException.class, () -> app.calculateStudentsGrades());
+    }
+
+    @Test
+    public void testIncorrectOutputFormat() throws Exception {
+        // Replace with your actual empty data file path
+        String inputFilePath = "src/test/black_box/resources/valid_data.txt";
+        String outputFilePath = "src/test/black_box/resources/output_incorrect.txt";
+
+        StudentGradingApp app = new StudentGradingApp(inputFilePath, outputFilePath);
+        assertDoesNotThrow(() -> app.calculateStudentsGrades());
     }
 
 }

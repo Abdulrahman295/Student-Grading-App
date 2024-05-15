@@ -42,7 +42,11 @@ public class FileReaderManager {
                     student.getStudentSubjects().put(subject.getSubjectCode(), work);
                     students.add(student);
                 }
+            } else {
+                throw new IllegalArgumentException("The provided file is empty");
             }
+        } catch (Exception e) {
+            throw e;
         }
     }
 

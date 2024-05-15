@@ -1,4 +1,4 @@
-Mathematics, CSE101, 100
+Mathe&matics, CSE101, 100
 John Doe, 1234567A, 10, 9, 15, 45
 Jane Smith, 1234567B, 8, 7, 18, 52
 Alice Johnson, 1234567C, 9, 8, 20, 58

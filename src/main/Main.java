@@ -1,42 +1,15 @@
 package main;
 
-import main.academic.*;
-import main.file.*;
-import main.grading.*;
-import java.nio.file.*;
-import java.util.List;
-
+import main.app.StudentGradingApp;
 
 public class Main {
-    public static void main(String[] args) {
-        try {   
-            Path path = Paths.get("src/main/file/resources/input.txt");
-                
-             if (!Files.exists(path)) {
-                throw new IllegalArgumentException("Resource file not found at " + path);
-            }
+    public static void main(String[] args) throws Exception {
 
-            String filePath = path.toString();
+        String inputPath = "src/test/black_box/resources/empty_data.txt";
+        String outputPath = "src/main/file/resources/output.txt";
 
-            FileReaderManager readerManager = new FileReaderManager(filePath);
+        StudentGradingApp app = new StudentGradingApp(inputPath, outputPath);
 
-            Subject subject = readerManager.getSubject();
-
-            List<Student>  students = readerManager.getStudents();
-
-            for (Student student : students) {
-                SubjectWork work = student.getStudentSubjects().get(subject.getSubjectCode());
-                Double subjectGPA = Calculator.calculateGradeAndGPA(work).getValue();
-                String subjectGrade = Calculator.calculateGradeAndGPA(work).getKey();
-                work.setGPA(subjectGPA);
-                work.setGrade(subjectGrade);
-            }
-            
-            FileWriterManager.writeToFile("src/main/file/resources/output.txt", subject, students);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        app.calculateStudentsGrades();
     }
 }
